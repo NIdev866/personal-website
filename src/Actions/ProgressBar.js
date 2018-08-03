@@ -6,6 +6,7 @@ export const PAUSE_PROGRESS_BAR_BY_TOUCH_EVENT = 'PAUSE_PROGRESS_BAR_BY_TOUCH_EV
 export const UNPAUSE_PROGRESS_BAR_BY_TOUCH_EVENT = 'UNPAUSE_PROGRESS_BAR_BY_TOUCH_EVENT';
 export const INCREASE_PROGRESS_BAR_PROGRESS = 'INCREASE_PROGRESS_BAR_PROGRESS';
 export const RESET_PROGRESS_BAR = 'RESET_PROGRESS_BAR';
+export const ADD_VIEW_TO_PREVIOUSLY_OPENED_VIEWS = 'ADD_VIEW_TO_PREVIOUSLY_OPENED_VIEWS';
 
 let increaseInterval = null;
 
@@ -81,3 +82,8 @@ export const resetProgressBar = () => dispatch => {
   clearInterval(increaseInterval);
   dispatch({type: RESET_PROGRESS_BAR});
 };
+
+export const addViewToPreviouslyOpenedViews = viewIndex => ({
+  type: ADD_VIEW_TO_PREVIOUSLY_OPENED_VIEWS,
+  payload: viewIndex
+});
