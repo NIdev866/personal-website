@@ -8,6 +8,9 @@ import CurrentViewIndex from './CurrentViewIndex';
 import SectionBeforeContact from './SectionBeforeContact';
 import ViewBeforeContact from './ViewBeforeContact';
 import SubMenuOpened from './SubMenuOpened';
+import ProgressBar from './ProgressBar';
+import Guide from './Guide';
+import EducationImageInterval from './EducationImageInterval';
 
 const Reducers = combineReducers({
   ScreenWidth,
@@ -18,7 +21,10 @@ const Reducers = combineReducers({
   CurrentViewIndex,
   SectionBeforeContact,
   ViewBeforeContact,
-  SubMenuOpened
+  SubMenuOpened,
+  ProgressBar,
+  Guide,
+  EducationImageInterval
 });
 
 export default Reducers;
