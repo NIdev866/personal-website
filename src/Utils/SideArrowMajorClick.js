@@ -7,7 +7,7 @@ import {
 
 const SideArrowMajorClick = (props, newSection) => {
   if(
-    props.prviouslyOpenedViews.indexOf(
+    props.previouslyOpenedViews.indexOf(
       props.eachSectionFirstPageIndex[newSection]
     ) >= 0
   ) {

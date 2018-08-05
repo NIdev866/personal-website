@@ -4,12 +4,12 @@ import {withRouter} from 'react-router-dom';
 
 class AssignCorrectUrl extends Component {
   componentDidMount() {
-    this.assignCorrectUrlHanlder();
+    this.assignCorrectUrlHandlder();
   }
   componentDidUpdate() {
-    this.assignCorrectUrlHanlder();
+    this.assignCorrectUrlHandlder();
   }
-  assignCorrectUrlHanlder = () => {
+  assignCorrectUrlHandlder = () => {
     const props = this.props;
     if(
       typeof props.CurrentViewIndex === 'number' &&
@@ -19,7 +19,7 @@ class AssignCorrectUrl extends Component {
         props.history.push(props.allPagesUrls[props.CurrentViewIndex]);
       }
     }
-  }
+  };
   render() {
     return null;
   }
@@ -28,6 +28,6 @@ class AssignCorrectUrl extends Component {
 const mapStateToProps = store => ({
   CurrentViewIndex: store.CurrentViewIndex,
   allPagesUrls: store.AllPages.allPagesUrls,
-})
+});
 
 export default withRouter(connect(mapStateToProps)(AssignCorrectUrl));

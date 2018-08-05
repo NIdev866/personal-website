@@ -3,13 +3,13 @@ import {
   pauseProgressBarByRevisiting,
   resetProgressBar,
   unpauseProgressBarByTouchEvent
-} from "../Actions/ProgressBar";
-import {registerSectionBeforeContact} from "../Actions/SectionBeforeContact";
-import {showNextGuide} from "../Actions/Guide";
-import {registerCurrentSectionIndex} from "../Actions/CurrentSectionIndex";
-import {registerCurrentViewIndex} from "../Actions/CurrentViewIndex";
-import {registerViewBeforeContact} from "../Actions/ViewBeforeContact";
-import {registerSubMenuOpened} from "../Actions/SubMenuOpened";
+} from '../Actions/ProgressBar';
+import {registerSectionBeforeContact} from '../Actions/SectionBeforeContact';
+import {showNextGuide} from '../Actions/Guide';
+import {registerCurrentSectionIndex} from '../Actions/CurrentSectionIndex';
+import {registerCurrentViewIndex} from '../Actions/CurrentViewIndex';
+import {registerViewBeforeContact} from '../Actions/ViewBeforeContact';
+import {registerSubMenuOpened} from '../Actions/SubMenuOpened';
 
 const SubMenuItemClick = (
   mainHeaderIndex,
@@ -50,7 +50,7 @@ const SubMenuItemClick = (
   props.dispatch(registerCurrentViewIndex(
     props.eachSectionFirstPageIndex[props.SubMenuOpened] + subMenuItemIndex
   ));
-  props.dispatch(registerCurrentSectionIndex(mainHeaderIndex))
+  props.dispatch(registerCurrentSectionIndex(mainHeaderIndex));
 };
 
 export default SubMenuItemClick;

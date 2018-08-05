@@ -22,7 +22,7 @@ const ViewSwipeScale = (
   if(sideSwipeDistance > 0) {
     sideSwipeDistanceNegative = 0 - sideSwipeDistance;
   }
-  if(event === 'twoFingerSideSwipe') {
+  if(event === 'twoFingersSideSwipe') {
     if(
       SectionBeforeContact === 4 &&
       sideSwipeDistance <= 0

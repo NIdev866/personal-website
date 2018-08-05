@@ -7,6 +7,6 @@ const NextViewIsInNextSection = (
     return true;
   }
   return false;
-}
+};
 
 export default NextViewIsInNextSection;
