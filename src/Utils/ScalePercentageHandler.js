@@ -6,7 +6,7 @@ function ScalePercentageHandler(zoomOutPercentage) {
     return 'scale(0.87)';
   }
   else {
-    return `scale(0.${Math.floor(100 - (zoomOutPercentage/8))}`;
+    return `scale(0.${Math.floor(100 - (zoomOutPercentage/8))})`;
   }
 }
 

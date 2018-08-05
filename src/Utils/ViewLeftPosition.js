@@ -18,7 +18,7 @@ const ViewLeftPosition = (
   ) {
     return 0;
   }
-  if(event === 'twoFingerSideSwipe') {
+  if(event === 'twoFingersSideSwipe') {
     if(
       SectionBeforeContact === 4 &&
       sideSwipeDistance <= 0

@@ -6,10 +6,10 @@ import {
 } from '../Actions/ProgressBar';
 import {showNextGuide} from '../Actions/Guide';
 import {registerSectionBeforeContact} from '../Actions/SectionBeforeContact';
-import {registerCurrentSectionIndex} from "../Actions/CurrentSectionIndex";
-import {registerViewBeforeContact} from "../Actions/ViewBeforeContact";
+import {registerCurrentSectionIndex} from '../Actions/CurrentSectionIndex';
+import {registerViewBeforeContact} from '../Actions/ViewBeforeContact';
 import {registerSubMenuOpened} from '../Actions/SubMenuOpened';
-import {registerCurrentViewIndex} from "../Actions/CurrentViewIndex";
+import {registerCurrentViewIndex} from '../Actions/CurrentViewIndex';
 
 const MainMenuItemClick = (
   mainHeaderIndex,
@@ -45,7 +45,7 @@ const MainMenuItemClick = (
       props.closeMainMenu();
       props.handleStateAfterClosingContact();
       props.dispatch(unpauseProgressBarByTouchEvent());
-      props.dispatch(registerSectionBeforeContact(mainHeaderIndex))
+      props.dispatch(registerSectionBeforeContact(mainHeaderIndex));
       props.dispatch(registerCurrentViewIndex(
         props.eachSectionFirstPageIndex[mainHeaderIndex]
       ));
@@ -59,6 +59,6 @@ const MainMenuItemClick = (
     props.closeMainMenu();
     props.openContact();
   }
-}
+};
 
 export default MainMenuItemClick;
