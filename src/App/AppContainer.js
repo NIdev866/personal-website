@@ -15,7 +15,7 @@ class AppContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      initialCurrentViewIndexLoaded: false
+      initialCurrentViewIndexRegistered: false
     };
   }
   componentDidMount() {
@@ -96,9 +96,9 @@ class AppContainer extends Component {
     if(
       props.allPagesUrls &&
       props.allPagesUrls.length !== 0 &&
-      !state.initialCurrentViewIndexLoaded
+      !state.initialCurrentViewIndexRegistered
     ) {
-      this.setState({initialCurrentSectionIndexLoaded: true}, () => {
+      this.setState({initialCurrentViewIndexRegistered: true}, () => {
         props.dispatch(registerCurrentViewIndex(this.setInitialCurrentViewIndex()));
         props.dispatch(registerCurrentSectionIndex(this.setInitialCurrentSectionIndex('current')));
         props.dispatch(registerSectionBeforeContact(this.setInitialCurrentSectionIndex('before')));

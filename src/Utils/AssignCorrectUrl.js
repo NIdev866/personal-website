@@ -4,12 +4,12 @@ import {withRouter} from 'react-router-dom';
 
 class AssignCorrectUrl extends Component {
   componentDidMount() {
-    this.assignCorrectUrlHandlder();
+    this.assignCorrectUrlHandler();
   }
   componentDidUpdate() {
-    this.assignCorrectUrlHandlder();
+    this.assignCorrectUrlHandler();
   }
-  assignCorrectUrlHandlder = () => {
+  assignCorrectUrlHandler = () => {
     const props = this.props;
     if(
       typeof props.CurrentViewIndex === 'number' &&

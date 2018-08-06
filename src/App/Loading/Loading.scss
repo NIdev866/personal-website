@@ -1,0 +1,60 @@
+@import '../../variables';
+
+.top_left {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  background-color: $background-color;
+  z-index: 4;
+  margin: 0 auto;
+  transition: all 1.2s;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 3%, 3% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 3%, 3% 100%, 0 100%);
+}
+
+.bottom_right {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  background-color: $background-color;
+  z-index: 4;
+  margin: 0 auto;
+  transition: all 1.2s;
+  -webkit-clip-path: polygon(99% 100%, 100% 0, 97% 0, 0 97%, 0 100%);
+  clip-path: polygon(99% 100%, 100% 0, 97% 0, 0 97%, 0 100%);
+}
+
+.react_logo_wrapper {
+  height: 40px;
+  width: 60px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .react_logo_wrapper {
+    height: 80px;
+    width: 120px;
+  }
+}
+
+.react_logo {
+  animation: loading_spin infinite 4s linear;
+  height: 40px;
+  left: -50%;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .react_logo {
+    height: 80px;
+  }
+}
+
+@keyframes loading_spin {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
