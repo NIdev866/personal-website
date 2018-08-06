@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
+import App from '../App/App';
 import {
   pauseProgressBarByTouchEvent,
   unpauseProgressBarByTouchEvent,
@@ -47,7 +48,7 @@ class StateContainer extends Component {
       isContactViewOpen: props.location.pathname.toLowerCase().indexOf('/contact') === 0,
       distanceUp: props.location.pathname.toLowerCase().indexOf('/contact') === 0 ? 400 : 0,
     };
-    if(props.locastion.pathname.toLowerCase().indexOf('/contact') === 0) {
+    if(props.location.pathname.toLowerCase().indexOf('/contact') === 0) {
       props.dispatch(pauseProgressBarByTouchEvent());
     }
   }
@@ -262,6 +263,11 @@ class StateContainer extends Component {
     }
     else if(state.isContactViewOpen) {
       this.setState({
+        distanceUp: Math.floor(state.startOfTouch0ClientY - e.touches[0].clientY) + 420
+      });
+    }
+    else {
+      this.setState({
         distanceUp: Math.floor(state.startOfTouch0ClientY - e.touches[0].clientY)
       });
     }
@@ -381,7 +387,7 @@ class StateContainer extends Component {
         });
       }
       else {
-        this.setstate({
+        this.setState({
           zoomOutPercentage: Math.floor(0 + ((
             state.initialZoomOutDistance - state.zoomOutDistance
           ) / 1.5))
@@ -448,8 +454,8 @@ class StateContainer extends Component {
     }
     props.dispatch(registerViewBeforeContact(newPage));
     let newSection = null;
-    props.eachSectionFirstPageIndex.map((sectionsFirstpageInex, actualIndex) => {
-      if(sectionsFirstpageInex <= newPage) {
+    props.eachSectionFirstPageIndex.map((sectionsFirstpageIndex, actualIndex) => {
+      if(sectionsFirstpageIndex <= newPage) {
         newSection = actualIndex;
       }
       return true;
@@ -582,7 +588,29 @@ class StateContainer extends Component {
     }
   }
   render() {
-    return null;
+    const state = this.state;
+    return <App
+      onTouchStartHandler={this.onTouchStartHandler}
+      onTouchMoveHandler={this.onTouchMoveHandler}
+      onTouchEndHandler={this.onTouchEndHandler}
+      event={state.event}
+      zoomOutPercentage={state.zoomOutPercentage}
+      distanceUp={state.distanceUp}
+      isContactViewOpen={state.isContactViewOpen}
+      sideSwipeDistance={state.sideSwipeDistance}
+      transitionState={state.transitionState}
+      hasBackgroundLoadedHandler={this.hasBackgroundLoadedHandler}
+      hasBackgroundLoaded={state.hasBackgroundLoaded}
+      isMainMenuOpen={state.isMainMenuOpen}
+      closeMainMenu={this.closeMainMenu}
+      mainMenuDisplayPropertyState={state.mainMenuDisplayPropertyState}
+      openMainMenuByPressingButton={this.openMainMenuByPressingButton}
+      closeContact={this.closeContact}
+      handleStateAfterClosingContact={this.handleStateAfterClosingContact}
+      openContact={this.openContact}
+      moveOnePage={this.moveOnePage}
+      moveOneSection={this.moveOneSection}
+    />;
   }
 }
 
@@ -590,7 +618,7 @@ const mapStateToProps = store => ({
   SectionBeforeContact: store.SectionBeforeContact,
   ViewBeforeContact: store.ViewBeforeContact,
   allPagesUrls: store.AllPages.allPagesUrls,
-  eachSectionFirstPageIndex: store.Allpages.eachSectionFirstPageIndex,
+  eachSectionFirstPageIndex: store.AllPages.eachSectionFirstPageIndex,
   CurrentViewIndex: store.CurrentViewIndex,
   CurrentSectionIndex: store.CurrentSectionIndex,
   currentGuideIndex: store.Guide.currentGuideIndex,
@@ -599,4 +627,4 @@ const mapStateToProps = store => ({
   previouslyOpenedViews: store.ProgressBar.previouslyOpenedViews
 });
 
-export default connect(mapStateToProps)(StateContainer);
+export default withRouter(connect(mapStateToProps)(StateContainer));

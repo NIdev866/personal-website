@@ -1,0 +1,21 @@
+@import '../variables';
+
+.app_container {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  position: fixed;
+  background: $background-color no-repeat center fixed;
+  background-size: cover;
+  touch-action: none;
+  color: white;
+}
+
+.app {
+  z-index: 1;
+  transition: all .3s;
+  min-height: 100%;
+}
