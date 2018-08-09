@@ -1,0 +1,42 @@
+@import '../../variables';
+
+.guide_wrapper {
+  position: absolute;
+  top: -45px;
+  right: -95px;
+  width: 230px;
+  height: 130px;
+  transform: rotate(45deg);
+  border: 2px solid $primary-color;
+  background-color: $background-color;
+  z-index: 2;
+  transition: all .8s;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .guide_wrapper {
+    display: none;
+  }
+}
+
+.guide {
+  transform: rotate(-45deg);
+  position: relative;
+  left: -23px;
+  top: 27px;
+  pointer-events: none;
+}
+
+.guide_text {
+  position: relative;
+  top: 35px;
+  right: 17px;
+  font-size: 13px;
+}
+
+.guide_gif {
+  width: 60px;
+  top: 38px;
+  left: 9px;
+  position: relative;
+}

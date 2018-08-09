@@ -1,11 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import Content from './Content/Content';
+import Guide from './Guide/Guide';
 import style from './App.scss';
 import AllPagesRegister from '../Utils/AllPagesRegister';
 import AssignCorrectUrl from '../Utils/AssignCorrectUrl';
-import BackgroundLoadHandler from "../Utils/BackgroundLoadHandler";
-import ScalePercentageHandler from "../Utils/ScalePercentageHandler";
+import BackgroundLoadHandler from '../Utils/BackgroundLoadHandler';
+import ScalePercentageHandler from '../Utils/ScalePercentageHandler';
 import LoadingContainer from './Loading/LoadingContainer';
 import MainMenuContainer from './MainMenu/MainMenuContainer';
 
@@ -22,7 +24,7 @@ const App = props => {
       className={app_container}
     >
       <LoadingContainer
-        hasBackgroundLoade={props.hasBackgroundLoaded}
+        hasBackgroundLoaded={props.hasBackgroundLoaded}
       />
       <MainMenuContainer
         zoomOutPercentage={props.zoomOutPercentage}
@@ -34,12 +36,23 @@ const App = props => {
         closeContact={props.closeContact}
         handleStateAfterClosingContact={props.handleStateAfterClosingContact}
       />
+      <Guide />
       <div
         className={app}
         style={{
           transform: ScalePercentageHandler(props.zoomOutPercentage)
         }}
       >
+        <div className='d-flex'>
+          <Content
+            distanceUp={props.distanceUp}
+            event={props.event}
+            sideSwipeDistance={props.sideSwipeDistance}
+            transitionState={props.transitionState}
+            openContact={props.openContact}
+            openMainMenuByPressingButton={props.openMainMenuByPressingButton}
+          />
+        </div>
         <AllPagesRegister />
         <AssignCorrectUrl
           isContactViewOpen={props.isContactViewOpen}

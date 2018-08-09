@@ -23,14 +23,14 @@ const Loading = props => {
       />
       <div
         className={bottom_right}
-        style={{left: props.topLeftLeft}}
+        style={{left: props.bottomRightLeft}}
       />
     </div>
   );
-}
+};
 
 Loading.defaultProps = {
   reactLogoImage: ReactLogo
-}
+};
 
 export default Loading;
