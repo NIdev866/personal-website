@@ -163,7 +163,7 @@ module.exports = {
                     modules: true,
                     sourceMap: false,
                     importLoaders: 2,
-                    localIndentName: '[local]-[name]-[hash:base64:5]'
+                    localIdentName: '[local]-[name]-[hash:base64:5]'
                   }
                 },
                 'sass-loader'
@@ -184,7 +184,7 @@ module.exports = {
                 options: {
                   importLoaders: 1,
                   modules: true,
-                  localIndentName: '[local]-[name]-[hash:base64:5]'
+                  localIdentName: '[local]-[name]-[hash:base64:5]'
                 },
               },
               {

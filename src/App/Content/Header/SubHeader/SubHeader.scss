@@ -1,0 +1,35 @@
+@import '../../../../variables';
+
+.sub_header_wrapper_parent {
+  margin: 10px auto;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .sub_header_wrapper_parent {
+    margin: 20px auto 10px;
+  }
+}
+
+.sub_header_wrapper {
+  border-top: 1px solid $primary-color;
+  border-bottom: 1px solid $primary-color;
+  display: inline-block;
+}
+
+.sub_header {
+  min-width: calc(100% + 60px);
+  margin-left: -30px;
+  max-height: 45px;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .sub_header {
+    margin-top: -3px;
+  }
+}
+
+.each_item_wrapper {
+  margin: 0 10px;
+  user-select: none;
+  cursor: pointer;
+}

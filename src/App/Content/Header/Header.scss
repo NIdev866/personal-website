@@ -1,0 +1,18 @@
+.header {
+  margin: 0 auto;
+  max-width: 1050px;
+  font-size: 33px;
+  overflow: hidden;
+}
+
+@media screen  and (max-width: 1250px) {
+  .header {
+    max-width: 640px;
+  }
+}
+
+@media screen  and (max-width: 650px) {
+  .header {
+    max-width: 5.0vw;
+  }
+}

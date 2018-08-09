@@ -3,11 +3,12 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
 import style from './MainMenuContainer.scss';
-import MainMenuOpacity from "../../Utils/MainMenuOpacity";
-import MainMenuItemClick from "../../Utils/MainMenuItemClick";
-import CorrectStateForSubMenu from "../../Utils/CorrectStateForSubMenu";
-import SubMenuItemClick from "../../Utils/SubMenuItemClick";
-import ColouringOfSelected from "../../Utils/ColouringOfSelected";
+import MainMenuOpacity from '../../Utils/MainMenuOpacity';
+import MainMenuItemClick from '../../Utils/MainMenuItemClick';
+import CorrectStateForSubMenu from '../../Utils/CorrectStateForSubMenu';
+import SubMenuItemClick from '../../Utils/SubMenuItemClick';
+import ColouringOfSelected from '../../Utils/ColouringOfSelected';
+import {registerSubMenuOpened} from '../../Actions/SubMenuOpened';
 
 class MainMenuContainer extends Component {
   constructor(props) {
@@ -17,9 +18,116 @@ class MainMenuContainer extends Component {
       portfolioSubMenuWrapperHeight: null,
       educationSubMenuWrapperHeight: null,
       areHeightsRegistered: false,
-      allMainHeadesWithAllTheirSubMenuItems: {},
+      allMainHeadersWithAllTheirSubMenuItems: {},
       widestItemInEachSubMenu: {}
     };
+  }
+  componentDidUpdate() {
+    const state = this.state;
+    const props = this.props;
+    const allMainHeadersWithAllTheirSubMenuItems = {};
+    if(
+      props.allViewsFlat &&
+      props.allPagesUrls &&
+      props.SectionBeforeContact !== null &&
+      props.AllSections
+    ) {
+      props.allViewsFlat.map(viewFlat => {
+        if(allMainHeadersWithAllTheirSubMenuItems[viewFlat.SECTION_NAME] === undefined) {
+          allMainHeadersWithAllTheirSubMenuItems[viewFlat.SECTION_NAME] = [];
+        }
+        allMainHeadersWithAllTheirSubMenuItems[viewFlat.SECTION_NAME].push(viewFlat.headerTitle);
+        return true;
+      });
+    }
+    Object.keys(allMainHeadersWithAllTheirSubMenuItems).map((mainHeader, mainHeaderIndex) => {
+      allMainHeadersWithAllTheirSubMenuItems[mainHeader].map((subMenu, subMenuItemIndex) => {
+        if(
+          this[`header${mainHeaderIndex}subMenu${subMenuItemIndex}`] !== null &&
+          this[`header${mainHeaderIndex}subMenu${subMenuItemIndex}`] !== undefined &&
+          state[`header${mainHeaderIndex}subMenu${subMenuItemIndex}`] === undefined
+        ) {
+          this.setState({
+            [`header${mainHeaderIndex}subMenu${subMenuItemIndex}`]:
+            this[`header${mainHeaderIndex}subMenu${subMenuItemIndex}`].offsetWidth
+          });
+        }
+        return null;
+      });
+      return null;
+    });
+    let allSubMenuWidthsRegistered = true;
+    let widestItemInEachSubMenu = {};
+    Object.keys(allMainHeadersWithAllTheirSubMenuItems).map((mainHeader, mainHeaderIndex) => {
+      allMainHeadersWithAllTheirSubMenuItems[mainHeader].map((subMenu, subMenuItemIndex) => {
+        if(state[`header${mainHeaderIndex}subMenu${subMenuItemIndex}`] === undefined) {
+          allSubMenuWidthsRegistered = false;
+        }
+        return null;
+      });
+      return null;
+    });
+    if(allSubMenuWidthsRegistered) {
+      Object.keys(allMainHeadersWithAllTheirSubMenuItems).map((mainHeader, mainHeaderIndex) => {
+        allMainHeadersWithAllTheirSubMenuItems[mainHeader].map((subMenu, subMenuItemIndex) => {
+          if(
+            widestItemInEachSubMenu[`header${mainHeaderIndex}`] === undefined ||
+            widestItemInEachSubMenu[`header${mainHeaderIndex}`] <
+              state[`header${mainHeaderIndex}subMenu${subMenuItemIndex}`]
+          )
+            widestItemInEachSubMenu[`header${mainHeaderIndex}`] =
+              state[`header${mainHeaderIndex}subMenu${subMenuItemIndex}`];
+          return null;
+        });
+        return null;
+      });
+    }
+    if(
+      allMainHeadersWithAllTheirSubMenuItems !== {} &&
+      JSON.stringify(allMainHeadersWithAllTheirSubMenuItems) !==
+        JSON.stringify(state.allMainHeadersWithAllTheirSubMenuItems)
+    ) {
+      this.setState({allMainHeadersWithAllTheirSubMenuItems});
+    }
+    if(
+      widestItemInEachSubMenu !== {} &&
+      JSON.stringify(widestItemInEachSubMenu) !==
+        JSON.stringify(state.widestItemInEachSubMenu)
+    ) {
+      this.setState({widestItemInEachSubMenu});
+    }
+    if(
+      this.experienceSubMenuWrapper.clientHeight > 2 &&
+      this.portfolioSubMenuWrapper.clientHeight > 2 &&
+      this.educationSubMenuWrapper.clientHeight > 2
+    ) {
+      if(
+        state.experienceSubMenuWrapperHeight === null ||
+        state.portfolioSubMenuWrapperHeight === null ||
+        state.educationSubMenuWrapperHeight === null
+      ) {
+        this.setState({
+          experienceSubMenuWrapperHeight: this.experienceSubMenuWrapper.clientHeight + 4,
+          portfolioSubMenuWrapperHeight: this.portfolioSubMenuWrapper.clientHeight + 4,
+          educationSubMenuWrapperHeight: this.educationSubMenuWrapper.clientHeight + 4
+        });
+      }
+    }
+    if(
+      props.CurrentSectionIndex !== null &&
+      props.SubMenuOpened === null
+    ) {
+      props.dispatch(registerSubMenuOpened(props.CurrentSectionIndex));
+    }
+    if(
+      state.experienceSubMenuWrapperHeight !== null &&
+      state.portfolioSubMenuWrapperHeight !== null &&
+      state.educationSubMenuWrapperHeight !== null &&
+      props.SubMenuOpened !== null &&
+      !state.areHeightsRegistered
+    ) {
+      this.setState({areHeightsRegistered: true});
+    }
   }
   render() {
     const {
@@ -30,7 +138,9 @@ class MainMenuContainer extends Component {
       main_menu_item,
       submenu_parent_wrapper,
       top_border,
-      bottom_border
+      bottom_border,
+      submenu_wrapper,
+      submenu
     } = style;
     const props = this.props;
     const state = this.state;
@@ -109,12 +219,12 @@ class MainMenuContainer extends Component {
                       }}
                     >
                       <div key={submenu} className={submenu}>
-                        {Object.keys(state.allMainHeadesWithAllTheirSubMenuItems).map(sectionName => {
+                        {Object.keys(state.allMainHeadersWithAllTheirSubMenuItems).map(sectionName => {
                           if(
                             sectionName === Section &&
-                            state.allMainHeadesWithAllTheirSubMenuItems[sectionName].length > 0
+                            state.allMainHeadersWithAllTheirSubMenuItems[sectionName].length > 0
                           ) {
-                            return state.allMainHeadesWithAllTheirSubMenuItems[sectionName].map((
+                            return state.allMainHeadersWithAllTheirSubMenuItems[sectionName].map((
                               subMenuItem,
                               subMenuItemIndex
                             ) => {
@@ -148,7 +258,9 @@ class MainMenuContainer extends Component {
                                   </span>
                                 </div>
                               );
-                            }
+                            });
+                          }
+                          return null;
                         })}
                       </div>
                     </div>
@@ -175,6 +287,6 @@ const mapStateToProps = store => ({
   SubMenuOpened: store.SubMenuOpened,
   previouslyOpenedViews: store.ProgressBar.previouslyOpenedViews,
   currentGuideIndex: store.Guide.currentGuideIndex
-})
+});
 
-export default withRouter(connect(mapStateToProps)(MainMenuContainer))
+export default withRouter(connect(mapStateToProps)(MainMenuContainer));
