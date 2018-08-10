@@ -1,0 +1,142 @@
+@import '../../../variables';
+
+.contact {
+  border-top: 3px solid $primary-color;
+  height: 380px;
+  padding-bottom: 20px;
+  background-color: $background-color;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact_details_wrapper {
+  font-size: 15px;
+  width: 100%;
+  min-height: 145px;
+  margin: 0 15px;
+  width: calc(100% - 30px);
+}
+
+@media screen and (max-width: 360px) {
+  .contact_details_wrapper {
+    font-size: 4vw;
+  }
+}
+
+.contact_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-width: 330px;
+  width: 330px;
+  color: $primary-color;
+  text-decoration: underline;
+  margin: 0 auto;
+}
+
+.contact_details_item {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.image {
+  max-height: 30px;
+  maegin-right: 9px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.detail_text {
+  margin-top: 5px;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.detail_text:active {
+  color: white;
+}
+
+.detail_text:hover {
+  color: white;
+}
+
+.contact_form_wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.contact_form {
+  position: absolute;
+  bottom: 0;
+  min-width: 100%;
+}
+
+.text_box {
+  border: 2px solid $primary-color;
+  width: calc(100% - 30px);
+  margin: 0 auto;
+  background-color: transparent;
+  padding-left: 5px;
+  color: white;
+  resize: none;
+}
+
+.text_box::placeholder {
+  color: darkgray;
+}
+
+.text_area {
+  height: 90px;
+}
+
+.form_button {
+  margin-top: 0px;
+  background-color: $primary-color;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form_overlay {
+  position: absolute;
+  width: calc(100% - 30px);
+  left: 15px;
+  border: 2px solid $primary-color;
+  height: calc(100% - 165px);
+  background-color: $background-color;
+  top: 145px;
+  z-index: 2;
+}
+
+.react_logo_wrapper {
+  height: 40px;
+  width: 60px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.react_logo {
+  animation: loading_spin infinite 4s linear;
+  height: 40px;
+  left: -50%;
+}
+
+@keyframes loading_spin {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+.message_status_text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

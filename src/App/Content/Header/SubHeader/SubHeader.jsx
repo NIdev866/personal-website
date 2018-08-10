@@ -3,14 +3,17 @@ import {connect} from 'react-redux';
 
 import style from './SubHeader.scss';
 import {
-  addViewToPreviouslyOpenedViews, continueProgressBar, pauseProgressBarByRevisiting, resetProgressBar,
+  addViewToPreviouslyOpenedViews,
+  continueProgressBar,
+  pauseProgressBarByRevisiting,
+  resetProgressBar,
   unpauseProgressBarByRevisiting,
   unpauseProgressBarByTouchEvent
-} from "../../../../Actions/ProgressBar";
-import {showNextGuide} from "../../../../Actions/Guide";
-import {registerCurrentViewIndex} from "../../../../Actions/CurrentViewIndex";
-import {registerViewBeforeContact} from "../../../../Actions/ViewBeforeContact";
-import ColouringOfSelected from "../../../../Utils/ColouringOfSelected";
+} from '../../../../Actions/ProgressBar';
+import {showNextGuide} from '../../../../Actions/Guide';
+import {registerCurrentViewIndex} from '../../../../Actions/CurrentViewIndex';
+import {registerViewBeforeContact} from '../../../../Actions/ViewBeforeContact';
+import ColouringOfSelected from '../../../../Utils/ColouringOfSelected';
 
 const SubHeader = props => {
   const {
@@ -129,7 +132,7 @@ const SubHeader = props => {
                   }}
                   style={{color: ColouringOfSelected(
                     'subHeader',
-                    props.ViewBeforeContact &&
+                    props.ViewBeforeContact,
                     props.eachSectionFirstPageIndex,
                     props.CurrentViewIndex,
                     index

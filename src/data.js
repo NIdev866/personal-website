@@ -175,5 +175,5 @@ export const contact = {
     emailAddress: 'nikodemignas@gmail.com',
     linkedIn: 'https://www.linkedin.com/in/nikodemignas'
   },
-  formSubmissionUrl: '#'
+  formSubmissionUrl: 'https://formspree.io/mvrnopzm'
 };
