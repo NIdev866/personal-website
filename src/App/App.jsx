@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import ContactOverlayContainer from './ContactOverlay/ContactOverlayContainer';
+import ProgressBarMobileContact from './ProgressBarMobileContact/ProgressBarMobileContact';
 import Content from './Content/Content';
 import Guide from './Guide/Guide';
 import style from './App.scss';
@@ -43,6 +45,15 @@ const App = props => {
           transform: ScalePercentageHandler(props.zoomOutPercentage)
         }}
       >
+        <ProgressBarMobileContact
+          distanceUp={props.distanceUp}
+          closeContact={props.closeContact}
+        />
+        <ContactOverlayContainer
+          distanceUp={props.distanceUp}
+          transitionState={props.transitionState}
+          closeContact={props.closeContact}
+        />
         <div className='d-flex'>
           <Content
             distanceUp={props.distanceUp}

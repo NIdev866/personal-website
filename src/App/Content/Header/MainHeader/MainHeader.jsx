@@ -6,7 +6,10 @@ import {withRouter} from 'react-router-dom';
 import {showNextGuide} from '../../../../Actions/Guide';
 import {registerSubMenuOpened} from '../../../../Actions/SubMenuOpened';
 import {
-  addViewToPreviouslyOpenedViews, continueProgressBar, pauseProgressBarByRevisiting, resetProgressBar,
+  addViewToPreviouslyOpenedViews,
+  continueProgressBar,
+  pauseProgressBarByRevisiting,
+  resetProgressBar,
   unpauseProgressBarByRevisiting,
   unpauseProgressBarByTouchEvent
 } from '../../../../Actions/ProgressBar';
@@ -22,7 +25,7 @@ const MainHeader = props => {
   } = style;
   return (
     <div className={['row', header_row].join(' ')}>
-      {props.AllSections && props.AllSections.map((Section, index) => {
+      {props.AllSections && props.AllSections.map((Section, index) => (
         <div
           onClick={()=>{
             if(index !== props.SectionBeforeContact) {
@@ -83,8 +86,8 @@ const MainHeader = props => {
           style={{color: props.CurrentSectionIndex === index && '#b338f7'}}
         >
           {Section}
-        </div>;
-      })}
+        </div>
+      ))}
     </div>
   );
 };
@@ -101,6 +104,6 @@ const mapStateToProps = store => ({
   isProgressBarPausedByRevisiting: store.ProgressBar.isProgressBarPausedByRevisiting,
   isProgressBarPausedByTouchEvent: store.ProgressBar.isProgressBarPausedByTouchEvent,
   currentGuideIndex: store.Guide.currentGuideIndex
-})
+});
 
 export default withRouter(connect(mapStateToProps)(MainHeader));

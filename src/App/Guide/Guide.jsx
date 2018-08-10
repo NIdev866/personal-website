@@ -14,6 +14,9 @@ const Guide = props => {
     guide_text,
     guide_gif
   } = style;
+  if(props.currentGuideIndex > 4) {
+    return null;
+  }
   return (
     <div
       className={guide_wrapper}

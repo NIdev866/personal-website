@@ -5,14 +5,14 @@
   overflow: hidden;
 }
 
-@media screen  and (max-width: 1250px) {
+@media screen and (max-width: 1250px) {
   .header {
     max-width: 640px;
   }
 }
 
-@media screen  and (max-width: 650px) {
+@media screen and (max-width: 650px) {
   .header {
-    max-width: 5.0vw;
+    font-size: 5.0vw;
   }
 }
