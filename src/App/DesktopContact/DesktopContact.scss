@@ -1,0 +1,31 @@
+@import '../../variables';
+
+.desktop_contact {
+  position: absolute;
+  overflow: hidden;
+  width: 500px;
+  height: 415px;
+  left: 50%;
+  transform: translateX(-50%) scale(1.35);
+  z-index: 3;
+  border-left: 3px solid $primary-color;
+  border-right: 3px solid $primary-color;
+  background-color: $background-color;
+  transition: all .35s;
+}
+
+@media screen and (max-width: $desktop-view-breakpoint) {
+  .desktop_contact {
+    display: none;
+  }
+}
+
+.exit_button {
+  position: absolute;
+  top: 7px;
+  right: 5px;
+  z-index: 1;
+  cursor: pointer;
+  overflow: hidden;
+  height: 20px;
+}
