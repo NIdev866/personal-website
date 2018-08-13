@@ -35,7 +35,7 @@ class ContactContainer extends Component {
         }, 2000);
       });
     }
-  }
+  };
   render() {
     const state = this.state;
     return (
@@ -43,6 +43,12 @@ class ContactContainer extends Component {
         yourName={state.yourName}
         yourEmail={state.yourEmail}
         message={state.message}
+        updateYourName={this.updateYourName}
+        updateYourEmail={this.updateYourEmail}
+        updateMessage={this.updateMessage}
+        messageStatus={state.messageStatus}
+        sendButtonPressed={this.sendButtonPressed}
+        submissionStatusHandler={this.submissionStatusHandler}
       />
     );
   }

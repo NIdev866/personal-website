@@ -1,0 +1,10 @@
+@import '../../variables';
+
+.contact_overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  background-color: $background-color;
+  z-index: 2;
+  margin: 0 auto;
+}

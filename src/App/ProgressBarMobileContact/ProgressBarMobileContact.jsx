@@ -6,8 +6,11 @@ import ContactContainer from '../Content/Contact/ContactContainer';
 import style from './ProgressBarMobileContact.scss';
 import {showNextGuide} from '../../Actions/Guide';
 import {
-  addViewToPreviouslyOpenedViews, continueProgressBar, pauseProgressBarByRevisiting,
-  resetProgressBar, unpauseProgressBarByTouchEvent
+  addViewToPreviouslyOpenedViews,
+  continueProgressBar,
+  pauseProgressBarByRevisiting,
+  resetProgressBar,
+  unpauseProgressBarByTouchEvent
 } from '../../Actions/ProgressBar';
 import {moveOnePageToRight} from '../../Actions/CurrentViewIndex';
 import {registerViewBeforeContact} from '../../Actions/ViewBeforeContact';

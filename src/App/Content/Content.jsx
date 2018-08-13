@@ -1,8 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import Header from './Header/Header';
 import style from './Content.scss';
+import Header from './Header/Header';
+import View from './View/View';
+import Footer from './Footer/Footer';
 
 const Content = props => {
   const {
@@ -16,6 +18,16 @@ const Content = props => {
       <Header
         onClickStateHandler={props.onClickStateHandler}
         openContact={props.openContact}
+      />
+      <View
+        contactViewPosition={props.contactViewPosition}
+        onClickState={props.onClickState}
+        event={props.event}
+        sideSwipeDistance={props.sideSwipeDistance}
+        transitionState={props.transitionState}
+      />
+      <Footer
+        openMainMenuByPressingButton={props.openMainMenuByPressingButton}
       />
     </div>
   );
