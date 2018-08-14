@@ -8,7 +8,7 @@
   overflow: visible;
 }
 
-@media screen and (min-width :$desktop-view-breakpoint) {
+@media screen and (min-width: $desktop-view-breakpoint) {
   .view_wrapper {
     margin: 0 50px;
     max-width: calc(100vw - 240px);

@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 
 import style from './View.scss';
 import About from './About/About';
+import Experience from './Experience/Experience';
+import PortfolioContainer from './Portfolio/PortfolioContainer';
 import ViewLeftPosition from '../../../Utils/ViewLeftPosition';
 import ViewSwipeScale from '../../../Utils/ViewSwipeScale';
 
@@ -50,9 +52,9 @@ const View = props => {
           case 'About':
             return <About data={props.allViewsFlat[props.ViewBeforeContact]} />;
           case 'Experience':
-            return null;
+            return <Experience data={props.allViewsFlat[props.ViewBeforeContact]} />;
           case 'Portfolio':
-            return null;
+            return <PortfolioContainer data={props.allViewsFlat[props.ViewBeforeContact]} />;
           case 'Skills':
             return null;
           case 'Education':
