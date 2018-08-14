@@ -1,0 +1,130 @@
+@import '../../../../variables';
+
+.main_title {
+  font-size: 32px;
+  margin-top: 5px;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .main_title {
+    font-size: 50px;
+  }
+}
+
+.no_logo_main_title_wrapper {
+  font-size: 42px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .no_logo_main_title_wrapper {
+    display: flex;
+    min-width: 350px;
+  }
+
+  .desktop_display_none {
+    display: none;
+  }
+}
+
+.bold_main_title {
+  font-weight: 900;
+}
+
+.main_title_logo_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.logo_wrapper_mobile {
+  max-width: 163px;
+  min-height: 51px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .logo_wrapper_mobile {
+    display: none;
+  }
+}
+
+.desktop_logo_text_wrapper {
+  margin: 15px auto 0;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .desktop_logo_text_wrapper {
+    line-height: 30px;
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: relative;
+  }
+}
+
+
+.logo_wrapper_dektop {
+  margin-right: 35px;
+  overflow: hidden;
+  display: none;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .logo_wrapper_dektop {
+    min-width: fit-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.logo {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .logo {
+    min-height: 90px;
+    max-height: 90px;
+  }
+}
+
+.bigger_text {
+  font-size: 20px;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .bigger_text {
+    text-align: left;
+    font-size: 28px;
+    padding-top: 5px;
+  }
+}
+
+.description {
+  margin-top: 18px;
+  margin-bottom: 15px;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .description {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+
+.smaller_text {
+  font-size: 14px;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .smaller_text {
+    font-size: 21px;
+  }
+}

@@ -13,6 +13,7 @@ import BackgroundLoadHandler from '../Utils/BackgroundLoadHandler';
 import ScalePercentageHandler from '../Utils/ScalePercentageHandler';
 import LoadingContainer from './Loading/LoadingContainer';
 import MainMenuContainer from './MainMenu/MainMenuContainer';
+import SideArrows from './SideArrows/SideArrows';
 
 const App = props => {
   const {
@@ -61,6 +62,12 @@ const App = props => {
           closeContact={props.closeContact}
         />
         <div className='d-flex'>
+          <SideArrows
+            disabled={props.SectionBeforeContact === 0}
+            openContact={props.openContact}
+            moveOnePage={props.moveOnePage}
+            moveOneSection={props.moveOneSection}
+          />
           <Content
             distanceUp={props.distanceUp}
             event={props.event}
@@ -68,6 +75,12 @@ const App = props => {
             transitionState={props.transitionState}
             openContact={props.openContact}
             openMainMenuByPressingButton={props.openMainMenuByPressingButton}
+          />
+          <SideArrows
+            flipped
+            openContact={props.openContact}
+            moveOnePage={props.moveOnePage}
+            moveOneSection={props.moveOneSection}
           />
         </div>
         <AllPagesRegister />
