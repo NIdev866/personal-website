@@ -1,0 +1,31 @@
+@import '../../../../variables';
+
+.skills_wrapper {
+  font-size: 12px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: $desktop-view-breakpoint) {
+  .skills_wrapper {
+    font-size: 18px;
+    line-height: 22px;
+    max-width: 550px;
+  }
+}
+
+.skills {
+  display: flex;
+  justify-content: space-around;
+  text-align: left;
+  position: relative;
+}
+
+.skills div {
+  margin-bottom: 2px;
+}
+
+.vertical_divide {
+  width: 1px;
+  background-color: $primary-color;
+}

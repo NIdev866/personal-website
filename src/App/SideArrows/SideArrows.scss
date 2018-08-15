@@ -7,7 +7,7 @@
   min-width: 0;
 }
 
-@media screen and(min-width :$desktop-view-breakpoint) {
+@media screen and(min-width: $desktop-view-breakpoint) {
   .side_arrows {
     min-width: 120px;
   }
@@ -39,12 +39,11 @@
   user-select: none;
 }
 
-
 .arrow_minor {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 75%;
   max-height: 100%;
   border-left: 1px solid $primary-color;
