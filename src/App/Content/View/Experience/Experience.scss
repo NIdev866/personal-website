@@ -66,15 +66,14 @@
   }
 }
 
-
-.logo_wrapper_dektop {
+.logo_wrapper_desktop {
   margin-right: 35px;
   overflow: hidden;
   display: none;
 }
 
 @media screen and (min-width: $desktop-view-breakpoint) {
-  .logo_wrapper_dektop {
+  .logo_wrapper_desktop {
     min-width: fit-content;
     position: relative;
     display: flex;

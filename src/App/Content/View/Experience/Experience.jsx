@@ -11,7 +11,7 @@ const Experience = props => {
     no_logo_main_title_wrapper,
     logo_wrapper_mobile,
     desktop_logo_text_wrapper,
-    logo_wrapper_dektop,
+    logo_wrapper_desktop,
     logo,
     bigger_text,
     description,
@@ -37,7 +37,7 @@ const Experience = props => {
       </div>
       <div className={desktop_logo_text_wrapper}>
         {props.data.logo && (
-          <div className={logo_wrapper_dektop}>
+          <div className={logo_wrapper_desktop}>
             <img alt='Logo' className={logo} src={props.data.logo} />
           </div>
         )}

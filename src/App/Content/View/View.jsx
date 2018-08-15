@@ -5,6 +5,8 @@ import style from './View.scss';
 import About from './About/About';
 import Experience from './Experience/Experience';
 import PortfolioContainer from './Portfolio/PortfolioContainer';
+import SkillsContainer from './Skills/SkillsContainer';
+import EducationContainer from './Education/EducationContainer';
 import ViewLeftPosition from '../../../Utils/ViewLeftPosition';
 import ViewSwipeScale from '../../../Utils/ViewSwipeScale';
 
@@ -56,9 +58,9 @@ const View = props => {
           case 'Portfolio':
             return <PortfolioContainer data={props.allViewsFlat[props.ViewBeforeContact]} />;
           case 'Skills':
-            return null;
+            return <SkillsContainer data={props.allViewsFlat[props.ViewBeforeContact]} />;
           case 'Education':
-            return null;
+            return <EducationContainer data={props.allViewsFlat[props.ViewBeforeContact]} />;
           default:
             return null;
           }
