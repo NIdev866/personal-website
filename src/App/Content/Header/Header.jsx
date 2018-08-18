@@ -6,14 +6,17 @@ import SubHeader from './SubHeader/SubHeader';
 
 const Header = props => {
   const {
+    header_wrapper,
     header
   } = style;
   return (
-    <div className={header}>
-      <MainHeader
-        openContact={props.openContact}
-      />
-      <SubHeader />
+    <div className={header_wrapper}>
+      <div className={header}>
+        <MainHeader
+          openContact={props.openContact}
+        />
+        <SubHeader />
+      </div>
     </div>
   );
 };
