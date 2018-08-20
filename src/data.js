@@ -22,7 +22,7 @@ export const about = {
   End tools and libraries such as Redux.`,
   githubUrl: 'https://github.com/NIdev866',
   codepenUrl: 'https://codepen.io/NIdev866',
-  youtubeUrl: '#',
+  youtubeUrl: 'https://www.youtube.com/watch?v=QMtcJhrqjyI&list=PL4wcm517H_S1plebBY1ODYD5eixndM-wA',
   youtubeText: 'Making of this website'
 };
 
@@ -175,5 +175,5 @@ export const contact = {
     emailAddress: 'nikodemignas@gmail.com',
     linkedIn: 'https://www.linkedin.com/in/nikodemignas'
   },
-  formSubmissionUrl: 'https://formspree.io/mvrnopzm'
+  formSubmissionUrl: 'https://formspree.io/xajgbrdm'
 };
